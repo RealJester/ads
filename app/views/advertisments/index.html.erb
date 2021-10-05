@@ -1,0 +1,19 @@
+<h1>Listing advertisments</h1>
+
+<%= link_to "New advertisment", new_advertisment_path, class: "btn btn-lg btn-primary" %>
+<% @advertisments.each do |advertisment| %>
+<table>
+  <tr>
+  	<th>
+  	  <%= link_to advertisment.title, advertisment %>
+    </th>
+  </tr>
+    <td>
+      <%= advertisment.body %>
+    </td>
+</table>
+
+  <time>
+    <%= advertisment.formatted_created_at %>
+  </time>
+<% end %>

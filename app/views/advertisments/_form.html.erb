@@ -1,0 +1,15 @@
+<%= form_with model: @advertisment do |form| %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title, required: true, minlength: 3, placeholder: "Minimum 3 symbols" %>
+  </div>
+
+  <div>
+    <%= form.label :body %>
+    <%= form.text_area :body, required: true, placeholder: "Enter your ad text" %>
+  </div>
+
+  <div>
+    <%= form.submit "Publish" %>
+  </div>
+<% end %>
