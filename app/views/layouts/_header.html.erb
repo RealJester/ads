@@ -5,7 +5,19 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Help", help_path %></li>
-        <li><%= link_to "Log in", '#' %></li>
+        <% if user_signed_in? %>
+        <li class="dropdown">
+          <%= link_to current_user.email, '#',
+          class: 'nav-link px-2 dropdown-toggle',
+          data: {"bs-toggle": 'dropdown'} %>
+
+          <ul class="dropdown-menu">
+            <li><%= link_to "Log_out", '#', class: 'dropdown-item' %></li>
+          </ul>
+        </li>
+        <% else %>
+        <li><%= link_to "Log in", new_user_session_path %></li>
+        <% end %>  
       </ul>
     </nav>
   </div>
