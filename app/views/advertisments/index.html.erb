@@ -1,15 +1,18 @@
 <h1>Listing advertisments</h1>
 
 <%= link_to "New advertisment", new_advertisment_path, class: "btn btn-lg btn-primary" %>
-<% @advertisments.each do |advertisment| %>
+<% @advertisments.each do |a| %>
 <table>
   <tr>
   	<th>
-  	  <%= link_to advertisment.title, advertisment %>
+  	  <%= link_to a.title, a %>
     </th>
+    <td>
+      <%= a.user.email %>
+    </td>
   </tr>
     <td>
-      <%= advertisment.body %>
+      <%= a.body %>
     </td>
 </table>
 <% end %>
