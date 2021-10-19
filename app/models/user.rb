@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   has_many :advertisments, dependent: :destroy
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  
+  extend Enumerize
+  enumerize :role, in: [:user, :admin], default: :user
+
   devise :database_authenticatable, 
          :registerable,
          :recoverable, 
