@@ -1,5 +1,12 @@
 <%= link_to "Back to ADS", advertisments_path %>
+
   <h3><%= @advertisment.title %></h3>
   <p><%= @advertisment.body %></p>
 
+<% if can? :update, @advertisment %>
 <%= link_to "Edit", edit_advertisment_path %>
+<% end %>
+
+<% if can? :destroy, @advertisment %>
+<%= link_to "Delete", @advertisment, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>

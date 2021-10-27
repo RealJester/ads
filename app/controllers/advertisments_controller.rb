@@ -1,5 +1,6 @@
 class AdvertismentsController < ApplicationController
-
+  load_and_authorize_resource
+  skip_authorize_resource only: :index
   def index
     @advertisments = Advertisment.all
   end	
@@ -36,6 +37,8 @@ class AdvertismentsController < ApplicationController
   end	
 
   def destroy
+    @advertisment.destroy
+    redirect_to advertisments_path
   end
 
   private
