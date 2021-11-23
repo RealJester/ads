@@ -1,8 +1,8 @@
-<h1>Listing users</h1>
+<h1><%= t('.title') %></h1>
 
 <% @users.each do |u| %>
-<div><%= u.first_name %></div>
-<div><%= u.second_name %></div>
-<div><%= u.role %></div>
-<div><%= u.email %></div>
+  <div><%= u.first_name %></div>
+  <div><%= u.second_name %></div>
+  <div><%= u.role %></div>
+  <div><%= u.email %></div>
 <% end %>

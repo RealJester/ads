@@ -1,20 +1,16 @@
-<h1>Listing advertisments</h1>
+<h1><%= t('.title') %></h1>
 <% if can? :create, Advertisment %>
-<%= link_to "New advertisment", new_advertisment_path, class: "btn btn-lg btn-primary" %>
+<%= link_to t('advertisments.new.title'), new_advertisment_path, class: "btn btn-lg btn-primary" %>
 <% end %>
 
-<% @advertisments.each do |a| %>
-<table>
-  <tr>
-  	<th>
-  	  <%= link_to a.title, a %>
-    </th>
-    <td>
-      <%= a.user.first_name %> <%= a.user.second_name %>
-    </td>
-  </tr>
-    <td>
-      <%= a.body %>
-    </td>
-</table>
+<% @advertisments.each do |ad| %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8"><%= link_to ad.title, ad %></div>
+    <div class="col-6 .col-md-4"><%= ad.user.full_name %></div>
+  </div>
+  <div class="row">
+    <%= ad.body %>
+  </div>
+</div>
 <% end %>

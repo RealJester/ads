@@ -1,8 +1,11 @@
 class AdvertismentsController < ApplicationController
   load_and_authorize_resource
-  skip_authorize_resource only: :index
+  skip_authorize_resource only: [:index, :selection]
   def index
-    @advertisments = Advertisment.all
+    @advertisments = Advertisment.where state: "published"
+    if @advertisments == nil
+    @advertisments = []
+    end
   end	
 
   def show
@@ -37,12 +40,17 @@ class AdvertismentsController < ApplicationController
   end	
 
   def destroy
+    @advertisment = Advertisment.find(params[:id])
     @advertisment.destroy
     redirect_to advertisments_path
   end
 
+  def selection
+    @personal_advertisments = Advertisment.where user_id: current_user.id
+  end
+
   private
     def advertisment_params
-      params.require(:advertisment).permit(:title, :body)
+      params.require(:advertisment).permit(:title, :body, :state, :state_event)
     end
 end

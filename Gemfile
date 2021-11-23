@@ -21,6 +21,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-vkontakte'
 gem 'enumerize'
 gem 'cancancan'
+gem 'state_machine'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

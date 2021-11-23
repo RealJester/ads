@@ -250,6 +250,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    state_machine (1.2.0)
     therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
       ref
@@ -309,6 +310,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   spring
+  state_machine
   therubyracer
   turbolinks (~> 5)
   tzinfo-data

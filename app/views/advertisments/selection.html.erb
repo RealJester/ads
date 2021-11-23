@@ -1,0 +1,23 @@
+<h2><%= t('.title') %></h2>
+<% @personal_advertisments.each do |ad| %>
+<div class="container">
+  <div class="row">
+    <%= link_to ad.title, ad %>
+  </div>
+  <div class="row">
+    <%= ad.body %>
+  </div>
+  <div class="row">
+  	<%= ad.state %>
+  </div>
+</div>
+  <% if can? :update, ad %>
+    <%= link_to t('menu.buttons.edit'), edit_advertisment_path(ad), class: "btn btn-info" %>
+  <% end %>
+  <% if can? :destroy, ad %>
+  	<%= link_to t('menu.buttons.delete'), ad, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+  <% end %>	
+  <% if ad.state == "drafted" %>
+    <%= link_to t('menu.buttons.publish'), [ ad, advertisment: {state_event: :written} ], method: :patch, class: "btn btn-primary" %>
+  <% end %>
+<% end %>

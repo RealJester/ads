@@ -10,4 +10,8 @@ class User < ApplicationRecord
          :rememberable, 
          :validatable,
          :omniauthable
+  
+  def full_name
+    "#{first_name} #{second_name}"
+  end
 end
