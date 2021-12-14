@@ -1,0 +1,17 @@
+<h2><%= t('.title') %></h2>
+<% @advertisments.each do |ad| %>
+  <div class="container">
+    <div class="row">
+      <%= link_to ad.title, ad %>
+    </div>
+    <div class="row">
+      <%= ad.body %>
+    </div>
+    <div class="row">
+      <%= ad.user.full_name %>
+    </div>
+  </div>
+
+  <%= link_to t('menu.buttons.approve'), [ad, advertisment: {state_event: :approval}], method: :patch, class: "btn btn-success" %>
+  <%= link_to t('menu.buttons.reject'), '#', class: "btn btn-danger" %>
+<% end %>  

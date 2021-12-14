@@ -15,10 +15,13 @@ ru:
     my_ads: "Мои объявления"
     login: "Войти"
     sign_out: "Выйти"
-    buttons:
+    admin: "На подтверждение"
+    buttons:  
       edit: "Редактировать"
       publish: "Опубликовать"
       delete: "Удалить"
+      approve: "Одобрить"
+      reject: "Отклонить"
 
   static_pages:
     about:
@@ -51,6 +54,8 @@ ru:
       title: "Новое объявление"
     selection:
       title: "Мои объявления"
+    admin_list:
+      title: "Объявления на подтверждение"  
   users:
     index:
       title: "Список пользователей"

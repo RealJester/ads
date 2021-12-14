@@ -6,20 +6,21 @@
         <li><%= link_to t('menu.home'), root_path %></li>
         <li><%= link_to t('menu.help'), help_path %></li>
 
-        <% if can? :manage, User %>  
-          <li><%= link_to t('menu.users'), users_path %></li>
-        <% end %>
+        <% if user_signed_in? && current_user.role == "admin" %>
+          <li><%= link_to t('menu.admin'), admin_list_path %></li>
+        <% end %> 
         
-        <% if user_signed_in? %>
+        <% if user_signed_in? && current_user.role == "user" %>
           <li><%= link_to t('menu.my_ads'), personal_path %></li>
+        <% end %>  
+              
+        <% if user_signed_in? %>
           <li><%= link_to current_user.first_name, '#' %></li>
+          <li><%= link_to t('menu.sign_out'), destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to t('menu.login'), new_user_session_path %></li>
-        <% end %> 
+        <% end %>  
         
-        <% if user_signed_in? %>
-          <li><%= link_to t('menu.sign_out'), destroy_user_session_path, method: :delete %></li>
-        <% end %> 
       </ul>
     </nav>
   </div>

@@ -15,10 +15,13 @@ en:
     my_ads: "My Ads"
     login: "Log in"
     sign_out: "Sign out"
+    admin: "To confirm"
     buttons:
       edit: "Edit"
       publish: "Publish"
       delete: "Delete"
+      approve: "Approve"
+      reject: "Reject"
 
   static_pages:
     about:
@@ -50,6 +53,8 @@ en:
       back: "Back to ADS"
     selection:
       title: "My Ads"
+    admin_list:
+      title: "List of ads to confirm"  
   users:
     index:
       title: "Listing users"    

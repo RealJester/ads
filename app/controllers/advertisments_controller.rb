@@ -49,6 +49,10 @@ class AdvertismentsController < ApplicationController
     @personal_advertisments = Advertisment.where user_id: current_user.id
   end
 
+  def admin_list
+    @advertisments = Advertisment.where state: "in_considered"
+  end  
+
   private
     def advertisment_params
       params.require(:advertisment).permit(:title, :body, :state, :state_event)
