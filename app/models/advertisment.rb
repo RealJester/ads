@@ -1,5 +1,7 @@
 class Advertisment < ApplicationRecord
   belongs_to :user
+  has_many :advertisments_tags
+  has_many :tags, through: :advertisments_tags
   validates :title, presence: true, length: {minimum: 3}
   validates :body, presence: true
 

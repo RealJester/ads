@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'tags/create'
+  get 'tags/destroy'
   devise_for :users
   get 'personal'   => 'advertisments#selection'
   get 'admin_list' => 'advertisments#admin_list'
