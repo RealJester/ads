@@ -1,0 +1,6 @@
+jQuery(function($){
+
+  $("approvalAction")
+
+  $("rejectionAction")
+});

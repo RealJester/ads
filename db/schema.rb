@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_16_072956) do
+ActiveRecord::Schema.define(version: 2021_12_16_130748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,12 +27,12 @@ ActiveRecord::Schema.define(version: 2021_12_16_072956) do
   end
 
   create_table "advertisments_tags", force: :cascade do |t|
-    t.bigint "tag_id", null: false
-    t.bigint "advertisment_id", null: false
+    t.bigint "advertisments_id", null: false
+    t.bigint "tags_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["advertisment_id"], name: "index_advertisments_tags_on_advertisment_id"
-    t.index ["tag_id"], name: "index_advertisments_tags_on_tag_id"
+    t.index ["advertisments_id"], name: "index_advertisments_tags_on_advertisments_id"
+    t.index ["tags_id"], name: "index_advertisments_tags_on_tags_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -49,14 +49,14 @@ ActiveRecord::Schema.define(version: 2021_12_16_072956) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "first_name", default: "", null: false
-    t.string "second_name", default: "", null: false
+    t.string "first_name", null: false
+    t.string "second_name", null: false
     t.string "role", default: "user", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "advertisments", "users"
-  add_foreign_key "advertisments_tags", "advertisments"
-  add_foreign_key "advertisments_tags", "tags"
+  add_foreign_key "advertisments_tags", "advertisments", column: "advertisments_id"
+  add_foreign_key "advertisments_tags", "tags", column: "tags_id"
 end
