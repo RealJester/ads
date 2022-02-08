@@ -1,4 +1,4 @@
-<%= form_with model: @advertisment do |form| %>
+<%= form_with model: @advertisment, html: { multipart: true } do |form| %>
   <div>
     <%= form.label :title %>
     <%= form.text_field :title, required: true, minlength: 3, placeholder: t('.placeholder_title') %>
@@ -7,6 +7,10 @@
   <div>
     <%= form.label :body %>
     <%= form.text_area :body, required: true, placeholder: t('.placeholder_body') %>
+  </div>
+
+  <div>
+    <%= form.file_field :image, multiple: true %>
   </div>
 
   <div>

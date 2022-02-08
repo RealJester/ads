@@ -1,4 +1,5 @@
 class Advertisment < ApplicationRecord
+  mount_uploaders :image, ImageUploader
   belongs_to :user
   has_many :advertisments_tags
   has_many :tags, through: :advertisments_tags

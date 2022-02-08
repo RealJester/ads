@@ -1,0 +1,13 @@
+development: 
+  cloud_name: "dsfuwutye"
+  api_key: "818535233424634"
+  api_secret: "B06II6lk_Zkbrx7ySCdd7RUVwaI"
+  secure: true
+  cdn_subdomain : true
+
+production:
+  cloud_name: "dsfuwutye"
+  api_key: "818535233424634"
+  api_secret: "B06II6lk_Zkbrx7ySCdd7RUVwaI"
+  secure: true
+  cdn_subdomain : true

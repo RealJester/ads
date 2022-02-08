@@ -55,6 +55,6 @@ class AdvertismentsController < ApplicationController
 
   private
     def advertisment_params
-      params.require(:advertisment).permit(:title, :body, :state, :state_event)
+      params.require(:advertisment).permit(:title, :body, :state, :state_event, {image: []})
     end
 end
